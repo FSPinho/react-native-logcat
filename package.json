@@ -1,0 +1,23 @@
+{
+  "name": "react-native-logcat",
+  "version": "0.0.1",
+  "description": "Advanced RN Logcat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "logcat"
+  ],
+  "author": "Felipe Pinho <felipepinhodev@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FSPinho/react-native-logcat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FSPinho/react-native-logcat/issues"
+  },
+  "homepage": "https://github.com/FSPinho/react-native-logcat#readme"
+}
