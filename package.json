@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/FSPinho/react-native-logcat/issues"
   },
-  "homepage": "https://github.com/FSPinho/react-native-logcat#readme"
+  "homepage": "https://github.com/FSPinho/react-native-logcat#readme",
+  "dependencies": {
+    "adbkit-logcat": "^2.0.1"
+  }
 }
