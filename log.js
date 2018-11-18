@@ -52,26 +52,30 @@ const _applyPriorities = (p, priorities) => {
     )
 }
 
-exports.log = (msg) => {
+exports.log = (msg, device = 'default') => {
 
-    const args = Args.getArgs()
-    const filters = args['-f'] || []
-    const priorities = args['-p'] || []
+    try {
+        const args = Args.getArgs()
+        const filters = args['-f'] || []
+        const priorities = args['-p'] || []
 
-    const rn = args['-rn']
-    if(rn) {
-        filters.push('ReactNative')
-        filters.push('ReactNativeJS')
-    }
-
-    const parts = msg.split('\n')
-    parts.map(p => {
-        if (_applyFilter(p, filters) || _applyPriorities(p, priorities)) {
-            const level = Object.keys(LEVELS).map(k => LEVELS[k]).filter(l => l.regex.test(p))[0]
-            if (level)
-                console.log(`${level.color} ${p} ${COLORS.Reset}`)
-            else
-                console.log('--')
+        const rn = args['-rn']
+        if(rn) {
+            filters.push('ReactNative')
+            filters.push('ReactNativeJS')
         }
-    })
+
+        const parts = msg.split('\n')
+        parts.map(p => {
+            if (_applyFilter(p, filters) || _applyPriorities(p, priorities)) {
+                const level = Object.keys(LEVELS).map(k => LEVELS[k]).filter(l => l.regex.test(p))[0]
+                if (level)
+                    console.log(`${device} ${level.color} ${p} ${COLORS.Reset}`)
+                else
+                    console.log('--')
+            }
+        })
+    } catch (e) {
+        console.log(' --- ', msg)
+    }
 }
